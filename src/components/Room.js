@@ -1,11 +1,37 @@
 import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-import close from "./close.jpg";
 
 Modal.setAppElement("#root");
 
-export default function ChooseRoom() {
+const style1 = {
+  
+}
+function RoomNo(props) {
+  const [isSelected, setIsSelected] = useState(false);
+  return(
+     
+      <button onClick={function () {
+        setIsSelected(!isSelected)
+      }} style={isSelected?{cursor: 'pointer',
+        width:'40px',
+        height:'50px',
+        background:'grey' ,
+        color: 'black',
+        fontWeight:'900',
+        borderRadius: '20%',
+        borderStyle: 'none',}:{cursor: 'pointer',
+        width:'40px',
+        height:'50px',
+        background: 'rgb(86, 173, 86)',
+        color: 'black',
+        fontWeight:'900',
+        borderRadius: '20%',
+        borderStyle: 'none',}}>{props.children}</button>
+  )
+}
+
+export default function Room() {
   const [isOpen, setIsOpen] = useState(false);
   function showModal() {
     setIsOpen(!isOpen);
@@ -23,18 +49,18 @@ export default function ChooseRoom() {
       </select>
       <div className="container-room">
         <div className="room-grid">
-          <button className="room-button">1</button>
-          <button className="room-button">2</button>
-          <button className="room-button">3</button>
-          <button className="room-button">4</button>
-          <button className="room-button">10</button>
-          <button className="room-button hide"></button>
-          <button className="room-button hide"></button>
-          <button className="room-button">5</button>
-          <button className="room-button">9</button>
-          <button className="room-button">8</button>
-          <button className="room-button">7</button>
-          <button className="room-button">6</button>
+         <RoomNo>1</RoomNo>
+         <RoomNo>2</RoomNo>
+         <RoomNo>3</RoomNo>
+         <RoomNo>4</RoomNo>
+         <RoomNo>10</RoomNo>
+        <button className="room-button hide"></button>
+        <button className="room-button hide"></button>
+         <RoomNo>5</RoomNo>
+         <RoomNo>9</RoomNo>
+         <RoomNo>8</RoomNo>
+         <RoomNo>7</RoomNo>
+         <RoomNo>6</RoomNo>
         </div>
       </div>
       <div>
@@ -52,9 +78,7 @@ export default function ChooseRoom() {
       > 
        <div>
         <div className="container-modal">
-          <button onClick={showModal} className="button-close">
-            <img src={close} alt="modalclose" height="20px" width="20px"></img>
-          </button>
+          <button onClick={showModal} className="button-close">❌</button>
           <h1 style={{marginLeft:150}}>Success</h1>
           </div>
           <div style={{textAlign:"center"}}>
