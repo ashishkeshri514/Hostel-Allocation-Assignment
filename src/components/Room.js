@@ -4,9 +4,6 @@ import { useState } from "react";
 
 Modal.setAppElement("#root");
 
-const style1 = {
-  
-}
 function RoomNo(props) {
   const [isSelected, setIsSelected] = useState(false);
   return(
